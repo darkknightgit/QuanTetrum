@@ -1,0 +1,80 @@
+  /* #Screen {
+    display: grid;
+    grid-template-columns: 360px 320px;
+  } */
+  
+  #Screen{
+    display: flex;
+    justify-content: center;
+  }
+
+  #DocumentationPanel {
+    border: solid 1px
+  }
+
+  #ControlPanel {
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  #DocumentationPanel {
+    margin: 10px;
+  }
+
+  #BoardCanvas {
+    margin: 10px;
+    border: solid 2px;
+  }
+
+  #Score_NextTetro{
+    display:flex;
+  }
+
+  #ScorePanel{
+    color: red;
+    border-left: solid 1px;
+    padding: 20px;
+    margin: 10px;
+  }
+
+  #NextTetroPanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #CurrentNextTetromino{
+    display: flex;    
+    justify-content: space-around;
+  }
+  .control-button{
+    background-color: bisque;
+    visibility:hidden;
+    white-space:nowrap;
+    width:100%;
+    cursor: pointer;
+  }
+  
+  .play-button {
+    background-color: bisque;
+    font-size: 16px;
+    padding: 5px 5px;
+    cursor: pointer;
+  }
+
+  .basicSt{
+    border: solid 1px; 
+    background-color: gray;
+  }
+  .supposSt{
+    border: solid 1px; 
+    background-color: cyan;
+  }
+  .entangledSt{
+    border: solid 1px; 
+    background-color: yellow;
+  }
+  
+

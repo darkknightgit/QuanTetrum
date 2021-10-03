@@ -1,0 +1,109 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="Screen">
+      <div hidden id="DocumentationPanel">
+        <h1>Rules and Strategies</h1>
+        <p>QuanTetrum is an intriguing tile-matching game enhanced with unique features of Quantum physics: superposition, entanglement, and measurement.</p>       
+        <h2>Rules:</h2>
+        <p>Player is required to strategically move and rotate a tetromino, as well as transforming the state of individual blocks in that tetromino, as it descends on the board. Each tetromino carries 4 blocks. Each block is in one of the 3 states (―), or ( | ), or (＋) and can possibly be entangled (paired) with another block. You score points by placing at least 7 blocks of the same state (―) or ( | ) in a row to make that row deleted. Your goal is to score and delete as many rows as you can. The game will end when the blocks fill ups the board.</p> 
+        <p>To move a descending tetromino, use the keyboard: left (LEFT), right (RIGHT), down (DOWN or SPACEBAR). To rotate a tetromino, use the UP key.</p> 
+        <p>When a tetromino descends on the board, you can transform the Quantum state of each block by clicking on the corresponding operation on the right side outside the board. Click on the letter in that block: H (Hadamard), X (NOT), M (Measurement), E (Entangle) to transform its state and operation.</p> 
+        <ul>
+          State of a block:
+          <li>When a block is in a basic state, (―), or ( | ), it is in grey color. </li> 
+          <li>When a block is in a superposition state (＋), it is in green color. When the tetromino lands on the board, this block will collapse to either (|) or (―) randomly.</li> 
+          <li>When a block is in an entanglement state, it will turn from grey to yellow. This block can be entangled (paired) with another block (connected by dash line on the board), and they will collapse together.</li> 
+        </ul>
+        <ul>
+          Operations for a block:
+          <li>H (Hadamard): Transform (―) or ( | ) to superposition (＋)</li>
+          <li>M (Measure): Breakdown superposition (＋) to either (―) or ( | ) RANDOMLY</li>
+          <li>X (NOT): Flip (―) to ( | ), and flip ( | ) to (―)</li>
+          <li>E (Entangle): Pair with another block so when one collapse, the other will simultaneously collapse.</li>
+          <li>When a tetromino lands on the board, blocks which are either in the superposition state or entanglement state will collapse. </li>          
+        </ul>      
+        <h2>Strategy:</h2>
+        <p>First, move and rotate a tetromino to a good position and let it fall freely.</p>
+        <p>Second, while tetromino is falling, transform each block. The easiest one is the basic piece with X operation.</p>
+        <p>Third, for the superposition (＋) or the entangled piece, keep using H-M-H or E-M-E buttons to change the piece until you get the expected result.</p>
+      </div>
+
+      <canvas id="BoardCanvas"></canvas>
+    
+      <div id="ControlPanel">
+        <div>
+          <h1>&#124 QuanTetrum &#10217</h1>
+          <hr>
+
+          <div id="CurrentNextTetromino">
+            <div>
+              <strong>Apply an Operation:</strong>
+              <br><br>
+              <table id="control-button-table">
+                <tr>
+                <td><button id="(0,0)-button" class="control-button">Op</button></td>
+                <td><button id="(0,1)-button" class="control-button">Op</button></td>
+                <td><button id="(0,2)-button" class="control-button">Op</button></td>
+                <td><button id="(0,3)-button" class="control-button">Op</button></td>
+                </tr>
+                <tr>
+                <td><button id="(1,0)-button" class="control-button">Op</button></td>
+                <td><button id="(1,1)-button" class="control-button">Op</button></td>
+                <td><button id="(1,2)-button" class="control-button">Op</button></td>
+                <td><button id="(1,3)-button" class="control-button">Op</button></td>
+                </tr>
+                <tr>
+                <td><button id="(2,0)-button" class="control-button">Op</button></td>
+                <td><button id="(2,1)-button" class="control-button">Op</button></td>
+                <td><button id="(2,2)-button" class="control-button">Op</button></td>
+                <td><button id="(2,3)-button" class="control-button">Op</button></td>
+                </tr>
+                <tr>
+                <td><button id="(3,0)-button" class="control-button">Op</button></td>
+                <td><button id="(3,1)-button" class="control-button">Op</button></td>
+                <td><button id="(3,2)-button" class="control-button">Op</button></td>
+                <td><button id="(3,3)-button" class="control-button">Op</button></td>
+                </tr>
+              </table>
+            </div>
+            <div id="NextTetroPanel">
+              <strong>Next Tetromino</strong>
+              <canvas id="NextTetrominoCanvas"></canvas>
+            </div>
+            <div id="ScorePanel">
+              <p></p><strong>Score:</strong> <span id="score">0</span></p>
+              <p><strong>Lines:</strong> <span id="lines">0</span></p>
+              <p><strong>Level:</strong> <span id="level">0</span></p>
+            </div>
+          </div>
+          <hr>
+          <p><strong>Goal</strong>: Score points by having a least 7 blocks of a same state <span class="basicSt"><strong>&#8594;</strong></span> or <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span> in a row.</p>
+          <p><span class="supposSt"><strong>&nbsp<big>+</big>&nbsp</strong></span> is superposition of <span class="basicSt"><strong>&#8594;</strong></span> and <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span>. When measured, it collapses to <span class="basicSt"><strong>&#8594;</strong></span> or <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span> randomly.</p>
+          <p><span class="entangledSt"><strong>&#8594;</strong></span> -- <span class="entangledSt"><strong>&nbsp &#8593; &nbsp</strong></span> means <span class="basicSt"><strong>&#8594;</strong></span> is entangled with <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span>. When one is measured, the other collapses, too.</p>                    
+          <p><strong>Rotate or Move tetrominos</strong> by UP, LEFT, RIGHT, DOWN, SPACEBAR key</p>
+          <p><strong>Transform blocks</strong> by clicking on <strong>X</strong>, <strong>M</strong>, <strong>H</strong>, <strong>E</strong> buttons:</p> 
+          
+          <div>
+    
+              <p>- <strong>H</strong> (Hadamard): transform <span class="basicSt"><strong>&#8594;</strong></span> or <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span> to <span class="supposSt"><strong>&nbsp<big>+</big>&nbsp</strong></span> </p>
+              <p>- <strong>M</strong> (Measure): breakdown <span class="supposSt"><strong>&nbsp<big>+</big>&nbsp</strong></span> to either <span class="basicSt"><strong>&#8594;</strong></span> or <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span> RANDOMLY</p>
+              <p>- <strong>X</strong> (NOT): flip <span class="basicSt"><strong>&#8594;</strong></span> to <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span>, flip <span class="basicSt"><strong>&nbsp &#8593; &nbsp</strong></span> to <span class="basicSt"><strong>&#8594;</strong></span></p>
+              <p>- <strong>E</strong> (Entangle): entangle <span class="basicSt"><strong>&nbspx&nbsp</strong></span>, <span class="basicSt"><strong>&nbspy&nbsp</strong></span> to make pair <span class="entangledSt"><strong>&nbspx&nbsp</strong></span> --- <span class="entangledSt"><strong>&nbspy&nbsp</strong></span>.</p>
+            
+            <hr>
+          </div>
+        </div>
+        <div>
+          <button onclick="play()"  id="NEWGAME-button" class="play-button">NEW GAME</button>
+          <button onclick="pause()" id="pause-button" class="play-button">pause</button>
+          <button onclick="readme()" id="readme-button" class="play-button">Rules</button>           
+        </div>
+      </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
