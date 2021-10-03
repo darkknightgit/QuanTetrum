@@ -5,6 +5,9 @@ QuanTetrum is a Tetris-inspired game that uses 3 important concepts of Quantum p
 
 Download and unzip and then run the index.html file.
 
+# Presenation video:
+https://youtu.be/DlKU3qC7mQc
+
 # Copyright: 
 
 This program is under MIT licence.
