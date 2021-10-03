@@ -1,6 +1,10 @@
 # QuanTetrum
 QuanTetrum is an intriguing tile-matching game enhanced with unique features of Quantum physics: superposition, entanglement, and measurement.
 
+# How to run:
+
+Download and unzip and then run the index.html file.
+
 # Rule:
 
 - Player is required to strategically move and rotate a tetromino, as well as transforming the state of individual blocks in that tetromino, as it descends on the board. Each tetromino carries 4 blocks. Each block is in one of the 3 states (―), or ( | ), or (＋) and can possibly be entangled (paired) with another block. You score points by placing at least 7 blocks of the same state (―) or ( | ) in a row to make that row deleted. Your goal is to score and delete as many rows as you can. The game will end when the blocks fill ups the board.
